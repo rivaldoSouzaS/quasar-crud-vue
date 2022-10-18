@@ -1,0 +1,6 @@
+{
+    "posts": [
+      { "id": 1, "title": "Learning quasar", "author": "Rivaldo Souza", "content":"to learn quaser is amazing"},
+      { "id": 1, "title": "Course vue", "author": "Rivaldo Souza", "content":"to learn vue is amazing"}
+    ]
+  }

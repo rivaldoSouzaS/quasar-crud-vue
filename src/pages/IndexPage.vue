@@ -13,6 +13,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
 import postsService from 'src/services/posts'
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: 'IndexPage',
@@ -26,6 +27,7 @@ export default defineComponent({
       { name: 'actions', field: 'actions', label: 'Acões', align: 'right' }
     ]
 
+    const $q = useQuasar()
     onMounted(() => {
       getPosts()
     })
@@ -42,11 +44,20 @@ export default defineComponent({
 
     const handleDeletePost = async (id) => {
       try {
-        await remove(id)
-        alert('Sucesso')
-        await getPosts()
+        $q.dialog({
+          title: 'Atenção',
+          message: 'Deseja realmente deletar'
+        }).onOk(async () => {
+          try {
+            await remove(id)
+            $q.notify({ message: 'Sucesso', icon: 'check', color: 'positive' })
+            await getPosts()
+          } catch (error) {
+            $q.notify({ message: 'Falha', icon: 'times', color: 'nagative' })
+          }
+        })
       } catch (error) {
-        alert(error)
+        $q.notify({ message: 'Falha', icon: 'times', color: 'nagative' })
       }
     }
     return {

@@ -1,16 +1,15 @@
 {
   "posts": [
     {
-      "id": 2,
-      "title": "Course quasar",
+      "id": 1,
+      "title": "learn vue",
       "author": "Rivaldo Souza",
-      "content": "to learn quasar is amazing"
+      "content": "to leran vue is amazing"
     },
     {
-      "id": 1,
-      "title": "Course vit",
+      "title": "learn quasar",
       "author": "Rivaldo Souza",
-      "content": "to learn vit is amazing"
+      "content": "to leran quasar is amazing"
     }
   ]
 }
